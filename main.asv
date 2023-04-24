@@ -1,0 +1,11 @@
+% Main program
+
+clear; close all; clc
+disp('Welcome:')
+%---------------------------- 1. Import data
+
+video = VideoReader("media\CarreteraProva.mp4");
+
+while hasFrame(video)
+
+end
