@@ -1,5 +1,6 @@
-function [Xi, Yi] = findpoly(x_line,right_lane, y_right_line, left_lane, y_left_line, I1, I2)
+function [Xi, Yi] = findpoly(x_line,right_lane, y_right_line, left_lane, y_left_line, I1, I2, offset)
     [xi,yi] = polyxpoly(x_line, y_right_line, x_line, y_left_line);
+
     % ------ left line intersections
     n1 = left_lane(2); 
     y_cut = y_left_line(1);
@@ -10,6 +11,7 @@ function [Xi, Yi] = findpoly(x_line,right_lane, y_right_line, left_lane, y_left_
         Xi = [x_line(1)];
         Yi = [y_cut];
     end
+
     % ------ lane intersections
     if yi>0 %include intersection point
         Xi = [Xi; xi];
@@ -20,6 +22,7 @@ function [Xi, Yi] = findpoly(x_line,right_lane, y_right_line, left_lane, y_left_
         Xi = [Xi; left_x_cut; right_x_cut];
         Yi = [Yi; 0; 0];
     end
+
     % ------ right lane intersections
     final_y = y_right_line(end);
     if final_y < I2    
