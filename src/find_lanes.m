@@ -1,4 +1,4 @@
-function [right_lane, y_right_line, left_lane, y_left_line, explicit_lines] = find_lanes(lines, x_line, last_lanes)
+function [lanes, y_right_line, y_left_line, explicit_lines] = find_lanes(lines, x_line, last_lanes)
     % find_lanes will find two lanes given a set of lines
     % Initiate variables
     explicit_lines = zeros(size(lines,2), 2); % aqui es guarden pendent i offset   
@@ -34,5 +34,8 @@ function [right_lane, y_right_line, left_lane, y_left_line, explicit_lines] = fi
         left_lane = mean(left_lane_lines, 1);
     end
     y_left_line = polyval(left_lane, x_line);
+
+
+    lanes = [right_lane, left_lane]
 end
 
