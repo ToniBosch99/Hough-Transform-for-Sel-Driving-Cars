@@ -1,6 +1,6 @@
 function [lines, theta, rho] = hough_transform(Frame, theta_vals, minLength)
-    % hough_transform: function that will search for lines in a binarized frame
-    
+    % hough_transform: function that will search for lines in a binarized
+    % frame
     % --------- Find hough map
     
     [H, theta, rho] = hough(Frame, 'RhoResolution' ,0.5, 'Theta' ,theta_vals);
